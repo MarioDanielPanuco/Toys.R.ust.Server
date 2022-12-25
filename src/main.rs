@@ -11,6 +11,7 @@ use std::{
     path::PathBuf,
     thread,
 };
+
 use axum::{
     extract::Path,
     http::StatusCode,
@@ -37,6 +38,7 @@ use tracing_subscriber::{
 
 mod model;
 
+#[warn(dead_code)]
 struct Website {
     app: Router,
 }
@@ -48,7 +50,7 @@ impl Website {
         port: u16,
         ipv4: Ipv4Addr,
         Routes: Vec<Route>,
-    ) -> Self {
+    ) -> Website {
         let addr = SocketAddr::from((IpAddr::V4(ipv4), port));
         let assets_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets");
 
@@ -67,10 +69,8 @@ impl Website {
             TraceLayer::new_for_http()
                 .make_span_with(DefaultMakeSpan::default().include_headers(true)),
         );
-
-
         Self {
-            app
+            app,
         }
     }
 }
@@ -103,6 +103,7 @@ async fn main() {
             .make_span_with(DefaultMakeSpan::default().include_headers(true)),
     );
 
+    // Tracing Output
     tracing::info!("Listening on: {}", addr);
 
     axum::Server::bind(&addr)
@@ -111,15 +112,17 @@ async fn main() {
         .unwrap();
 }
 
-async fn character(Path(iD): Path<i64>) -> impl IntoResponse {
+
+async fn character(Path(id_num): Path<i64>) -> impl IntoResponse {
     let _character_ = Json(model::character::Character {
-        id: iD,
-        health: 32,
-        deadeye: 33,
+        id:         id_num,
+        health:     32,
+        deadeye:    33,
     });
 
     (StatusCode::CREATED, _character_)
 }
+
 
 /*
 pub fn get_current_date() -> Date {
@@ -133,6 +136,7 @@ pub fn get_current_date() -> Date {
 }
 */
 
+
 #[cfg(test)]
 mod test {
     mod character {
@@ -143,3 +147,4 @@ mod test {
         }
     }
 }
+
