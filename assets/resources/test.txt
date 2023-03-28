@@ -1,0 +1,1 @@
+Rusty Timer is a CLI tool built in Rust. The timer is accurate to the nano-second. 

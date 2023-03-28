@@ -1,0 +1,129 @@
+.body {
+    background-color: lightseagreen;
+}
+
+h1 {
+    text-align:left;
+    font-family: Cascadia Mono, serif;
+    accent-color: blue ;
+}
+
+p {
+    font-size: 15px;
+}
+
+body {
+    accent-color: #e354f5;
+    font-family: Cascadia Mono, sans-serif;
+    margin: 0;
+    text-align: left;
+    /*align-content: right;*/
+    padding: 0;
+}
+
+header {
+    background-color: #20cbf3;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: space-between;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+}
+
+section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+section li {
+    margin: 10px 0;
+}
+
+footer {
+    border-top: purple;
+    border-width: medium;
+    border-inline-width: thick;
+    border-radius: 5px;
+    background-color: #5f95a2;
+    color: white;
+    margin: 30px;
+    padding: 10px;
+    border: 5px;
+}
+
+
+/*Links*/
+a {
+    target-new: tab;
+    outline: none;
+    flex: 1;
+    text-decoration: none;
+
+    padding: 2px 1px 0;
+
+}
+a:link {
+    color: #2d4815;
+}
+
+a:visited {
+    color: purple;
+    border-bottom: 3px solid;
+}
+
+a:hover {
+    color: #314618;
+    border-bottom: 3px solid;
+    background: #6dcc3e;
+    background-blend-mode: exclusion;
+}
+
+a:active {
+    color: blue;
+}
+
+a.github {
+    background: url("https://findicons.com/files/icons/2435/alex_peattie/32/github_alt.png") no-repeat 100% 0;
+}
