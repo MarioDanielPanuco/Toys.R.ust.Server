@@ -1,2 +1,6 @@
 /target
 /assets/
+/src/email_services/target/
+/src/email_services/Cargo.lock
+/src/cli/target
+/src/cli/Cargo.lock

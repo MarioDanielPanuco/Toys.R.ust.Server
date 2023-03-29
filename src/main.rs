@@ -6,6 +6,8 @@ use std::{
     thread,
 };
 
+mod model;
+
 use axum::{
     extract::Path,
     http::StatusCode,
@@ -13,6 +15,7 @@ use axum::{
     routing::{get, get_service, post, MethodRouter},
     Json, Router,
 };
+
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 use tower_http::{
@@ -21,7 +24,6 @@ use tower_http::{
 };
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
-mod model;
 
 #[warn(dead_code)]
 struct Website {
@@ -54,6 +56,8 @@ impl Website {
     }
 }
 
+use lib_email_services::{FormData, handle_contact_form};
+
 #[tokio::main]
 async fn main() {
     let ip = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
@@ -67,7 +71,7 @@ async fn main() {
     let assets_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets");
 
     let app = Router::new()
-        .route("/characters:id", get(character))
+    .route("/contact_form", post(|form: axum::Json<FormData>| async move { handle_contact_form(form).await }))
         .fallback_service(
             get_service(ServeDir::new(assets_dir).append_index_html_on_directories(true))
                 .handle_error(|error: Error| async move {
@@ -101,25 +105,4 @@ async fn character(Path(id_num): Path<i64>) -> impl IntoResponse {
     (StatusCode::CREATED, _character_)
 }
 
-/*
-pub fn get_current_date() -> Date {
-    let current_date = Date {
-        current_utc.day(),
-        current_utc.month(),
-        current_utc.year(),
-    };
 
-    current_date
-}
-*/
-
-#[cfg(test)]
-mod test {
-    mod character {
-        #![warn(dead_code)]
-
-        fn test() {
-            todo!()
-        }
-    }
-}

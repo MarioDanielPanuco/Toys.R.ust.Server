@@ -127,3 +127,11 @@ a:active {
 a.github {
     background: url("https://findicons.com/files/icons/2435/alex_peattie/32/github_alt.png") no-repeat 100% 0;
 }
+
+.contact {
+    text-align: center;
+}
+.contact-form {
+    text-align: center;
+    border: 10px solid;
+}
