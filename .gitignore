@@ -4,3 +4,4 @@
 /src/email_services/Cargo.lock
 /src/cli/target
 /src/cli/Cargo.lock
+/src/cli/target/
