@@ -85,4 +85,3 @@ fn send_email(
         }
     }
 }
-

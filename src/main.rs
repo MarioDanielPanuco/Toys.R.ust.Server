@@ -20,10 +20,12 @@ use axum::{
 
 use serde::{Deserialize, Serialize};
 // use serde_json::json;
+
 use tower_http::{
     services::{ServeDir, ServeFile},
     trace::{DefaultMakeSpan, TraceLayer},
 };
+
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 #[tokio::main]
@@ -43,6 +45,7 @@ async fn main() {
             "/contact_form",
             post(|form: axum::Json<FormData>| async move { handle_contact_form(form).await }),
         )
+        // .route("/CSE-20/notebooks", get())
         .fallback_service(
             get_service(ServeDir::new(assets_dir).append_index_html_on_directories(true))
                 .handle_error(|error: Error| async move {

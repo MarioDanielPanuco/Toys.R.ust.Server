@@ -25,5 +25,10 @@ js-sys = "0.3"
 [dependencies.lib-email_services]
 path = "src/email_services"
 version = "0.1.0"
+
+[dependencies.lib-notebooks]
+path = "src/notebooks"
+version = "0.1.0"
+
 [features]
 async_closure = []
