@@ -5,3 +5,4 @@
 /src/cli/target
 /src/cli/Cargo.lock
 /src/cli/target/
+Cargo.lock

@@ -6,6 +6,8 @@ use std::{
     thread,
 };
 
+use lib_email_services::{handle_contact_form, FormData};
+
 mod model;
 
 use axum::{
@@ -17,46 +19,12 @@ use axum::{
 };
 
 use serde::{Deserialize, Serialize};
-use serde_json::json;
+// use serde_json::json;
 use tower_http::{
     services::{ServeDir, ServeFile},
     trace::{DefaultMakeSpan, TraceLayer},
 };
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
-
-
-#[warn(dead_code)]
-struct Website {
-    app: Router,
-}
-
-type Route = (String, MethodRouter);
-
-impl Website {
-    pub fn new(port: u16, ipv4: Ipv4Addr, Routes: Vec<Route>) -> Website {
-        let addr = SocketAddr::from((IpAddr::V4(ipv4), port));
-        let assets_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets");
-
-        let app = Router::new()
-            .route("/characters:id", get(character))
-            .fallback_service(
-                get_service(ServeDir::new(assets_dir).append_index_html_on_directories(true))
-                    .handle_error(|error: Error| async move {
-                        (
-                            StatusCode::INTERNAL_SERVER_ERROR,
-                            format!("Unhandled internal error: {}", error),
-                        )
-                    }),
-            )
-            .layer(
-                TraceLayer::new_for_http()
-                    .make_span_with(DefaultMakeSpan::default().include_headers(true)),
-            );
-        Self { app }
-    }
-}
-
-use lib_email_services::{FormData, handle_contact_form};
 
 #[tokio::main]
 async fn main() {
@@ -71,7 +39,10 @@ async fn main() {
     let assets_dir = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("assets");
 
     let app = Router::new()
-    .route("/contact_form", post(|form: axum::Json<FormData>| async move { handle_contact_form(form).await }))
+        .route(
+            "/contact_form",
+            post(|form: axum::Json<FormData>| async move { handle_contact_form(form).await }),
+        )
         .fallback_service(
             get_service(ServeDir::new(assets_dir).append_index_html_on_directories(true))
                 .handle_error(|error: Error| async move {
@@ -104,5 +75,3 @@ async fn character(Path(id_num): Path<i64>) -> impl IntoResponse {
 
     (StatusCode::CREATED, _character_)
 }
-
-

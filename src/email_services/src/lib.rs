@@ -1,11 +1,11 @@
-use axum::{
-    http::{StatusCode},
-    response::IntoResponse,
-    Json,
-};
+use anyhow::Result;
+use axum::{http::StatusCode, response::IntoResponse, Json};
 use lettre::{
     message::{Mailbox, Message},
-    transport::smtp::{authentication::{Credentials, Mechanism}, SmtpTransport},
+    transport::smtp::{
+        authentication::{Credentials, Mechanism},
+        SmtpTransport,
+    },
     Transport,
 };
 use serde::Deserialize;
@@ -35,7 +35,8 @@ pub async fn handle_contact_form(form: Json<FormData>) -> impl IntoResponse {
             smtp_port,
             form.0,
         )
-    }).await;
+    })
+    .await;
 
     match result {
         Ok(_) => StatusCode::OK.into_response(),
@@ -43,10 +44,6 @@ pub async fn handle_contact_form(form: Json<FormData>) -> impl IntoResponse {
     }
 }
 
-// Add this function to send the email using `lettre`
-use anyhow::Result;
-
-// Add this function to send the email using `lettre`
 fn send_email(
     smtp_username: &str,
     smtp_password: &str,
@@ -55,7 +52,10 @@ fn send_email(
     form: FormData,
 ) -> Result<(), anyhow::Error> {
     let from_address = Mailbox::new(None, form.sender_email.parse().map_err(anyhow::Error::new)?);
-    let to_address = Mailbox::new(None, "mpanuco@ucsc.edu".parse().map_err(anyhow::Error::new)?);
+    let to_address = Mailbox::new(
+        None,
+        "mpanuco@ucsc.edu".parse().map_err(anyhow::Error::new)?,
+    );
 
     let email = Message::builder()
         .from(from_address)
@@ -85,3 +85,4 @@ fn send_email(
         }
     }
 }
+
