@@ -24,3 +24,7 @@ async function submitContactForm() {
         alert("Error sending email.");
     }
 }
+
+async function react_component () {
+    //TODO: react compenent 
+}

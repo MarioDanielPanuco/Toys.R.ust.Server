@@ -30,5 +30,7 @@ version = "0.1.0"
 path = "src/notebooks"
 version = "0.1.0"
 
-[features]
-async_closure = []
+[dependencies.lib-cache]
+path = "src/cache"
+version = "0.1.0"
+
