@@ -1,5 +1,3 @@
-
-
 use axum::{
     http::{HeaderMap, HeaderValue, StatusCode},
     response::IntoResponse,
@@ -7,7 +5,8 @@ use axum::{
 use reqwest::Url;
 use std::{io::Cursor, process::Command};
 use tower_http::{
-    add_extension::AddExtensionLayer as HttpAddExtensionLayer, set_header::SetResponseHeaderLayer,
+    add_extension::AddExtensionLayer as HttpAddExtensionLayer,
+    set_header::SetResponseHeaderLayer,
 };
 
 async fn notebooks(
