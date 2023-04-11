@@ -6,5 +6,5 @@
 /src/cli/Cargo.lock
 /src/cli/target/
 /src/log/target/
+/src/cache/target/
 Cargo.lock
-/src/log/target/
