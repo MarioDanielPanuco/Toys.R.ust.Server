@@ -72,7 +72,7 @@ fn send_email(
         .credentials(credentials)
         .build();
 
-    println!("About to send email...");
+    println!("Sending email...");
 
     match transport.send(&email) {
         Ok(_) => {

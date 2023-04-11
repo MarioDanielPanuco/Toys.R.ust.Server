@@ -19,12 +19,12 @@ async function submitContactForm() {
 
     alert(response.status);
     if (response.ok) {
-        alert("Email sent successfully!");
+        alert("Email sent successfully!")
     } else {
         alert("Error sending email.");
     }
 }
 
 async function react_component () {
-    //TODO: react compenent 
+    //TODO: react comp
 }
