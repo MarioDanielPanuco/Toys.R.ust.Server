@@ -9,6 +9,7 @@ use lettre::{
     Transport,
 };
 use serde::Deserialize;
+use tracing::{debug, error, info, span, warn, Level};
 
 // Add this struct to represent the form data
 #[derive(Deserialize, Debug)]
@@ -20,7 +21,7 @@ pub struct FormData {
 
 // Add this function to handle the form submission
 pub async fn handle_contact_form(form: Json<FormData>) -> impl IntoResponse {
-    println!("Form data received: {:?}", form.0);
+    debug!("Form data received: {:?}", form.0);
     // let smtp_username = std::env::var("").unwrap_or_default();
     let smtp_username = "".to_string();
     let smtp_password = "".to_string();
@@ -72,15 +73,15 @@ fn send_email(
         .credentials(credentials)
         .build();
 
-    println!("Sending email...");
+    debug!("Sending email...");
 
     match transport.send(&email) {
         Ok(_) => {
-            println!("Email sent successfully");
+            debug!("Email sent successfully");
             Ok(())
         }
         Err(e) => {
-            eprintln!("Error sending email: {:?}", e);
+            eprintln!("ERROR - sending email: {:?}", e);
             Err(anyhow::Error::from(e))
         }
     }
