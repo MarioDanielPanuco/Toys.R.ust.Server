@@ -1,13 +1,8 @@
-use axum::{http::{HeaderMap, HeaderValue, StatusCode}, http, response::IntoResponse};
-use http::Response;
+use axum::{http::{StatusCode}, http};
 use reqwest::Url;
-use std::{io::Cursor, fs, process::Command};
+use std::{process::Command};
 use std::io::Write;
 use axum::body::Body;
-use axum::response::Html;
-use tower_http::{
-    set_header::SetResponseHeaderLayer,
-};
 use tempfile::NamedTempFile;
 
 async fn notebooks(
@@ -15,10 +10,11 @@ async fn notebooks(
 ) -> Result<http::Response<Body> , StatusCode> {
     // Build the URL for the notebook file on GitHub
     let url = Url::parse(&format!(
-        "https://raw.githubusercontent.com/{}/{}/main/{}",
+        "https://raw.githubusercontent.com/{}/{}/master/{}",
         user, repo, path
     ))
     .map_err(|_| StatusCode::BAD_REQUEST)?;
+    println!("url: {}\n", url.as_str());
 
     // Download the notebook file contents using the GitHub API
     let notebook_contents = reqwest::get(url)
@@ -54,7 +50,7 @@ async fn notebooks(
     //     HeaderValue::from_static("text/html; charset=utf-8"),
     // ).unwrap();
 
-    let mut response = http::Response::builder()
+    let response = http::Response::builder()
         .status(StatusCode::OK)
     .header("content-type", "text/html; charset=utf-8");
 
@@ -72,7 +68,6 @@ mod tests {
     use super::notebooks;
     use axum::http::StatusCode;
     use axum::body::{HttpBody};
-    use futures::executor::block_on;
 
 
     // Test a valid notebook URL
@@ -82,17 +77,18 @@ mod tests {
         let repo = "CSE-20-SI".to_string();
         let path = "notebooks/lec8.ipynb".to_string();
 
-        let result = block_on(notebooks((user, repo, path)));
+        let result = (notebooks((user, repo, path))).await;
 
         match result {
             Ok(mut response) => {
                 assert_eq!(response.status(), StatusCode::OK);
                 let mut body_bytes = Vec::new();
-                while let Some(chunk) = block_on(response.body_mut().data()) {
+                while let Some(chunk) = response.body_mut().data().await {
                     let chunk = chunk.expect("Failed to read data");
                     body_bytes.extend(chunk);
                 }
                 let body_str = String::from_utf8_lossy(&body_bytes);
+                println!("{:?}", body_str);
                 assert!(body_str.contains("<!DOCTYPE html>"));
                 assert!(body_str.contains("<html>"));
             }
@@ -107,7 +103,7 @@ mod tests {
         let repo = "invalid_repo".to_string();
         let path = "path/to/invalid/notebook.ipynb".to_string();
 
-        let result = block_on(notebooks((user, repo, path)));
+        let result = notebooks((user, repo, path)).await;
 
         assert!(matches!(result, Err(StatusCode::BAD_GATEWAY)));
     }
@@ -119,7 +115,7 @@ mod tests {
         let repo = "invalid_repo".to_string();
         let path = "invalid_path".to_string();
 
-        let result = block_on(notebooks((user, repo, path)));
+        let result = notebooks((user, repo, path)).await;
 
         assert!(matches!(result, Err(StatusCode::BAD_REQUEST)));
     }
