@@ -9,3 +9,6 @@ edition = "2021"
 axum = "0.6.12"
 reqwest = "0.11.16"
 tower-http = {version ="0.4.0", features = ["fs", "trace", "set-header"]}
+tempfile = "3.2"
+futures = {version="0.3"}
+tokio = { version = "1.28.0", features = ["full", "test-util"] }
