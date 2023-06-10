@@ -1,10 +1,22 @@
-use std::{
-    io::{Error},
-    process::Command,
-};
+use std::{io::Error, process::Command};
 
 struct Cache {
+    n: u32,
+}
 
+struct Item<T> {
+    item: T,
+    id: u32,
+}
+
+impl<T> Item<T> {
+    pub fn new(new_item: T) -> Option<Self> {
+        todo!();
+        Some(Self {
+            item: new_item,
+            id: 100,
+        })
+    }
 }
 
 impl Cache {
@@ -18,8 +30,7 @@ impl Cache {
     }
 
     pub fn init_cache(size: u32) {
-        let output = Command::
-        new("./cache")
+        let output = Command::new("./cache")
             .arg("-N")
             .arg("10") // Size: 10
             .arg("-L"); // LRU

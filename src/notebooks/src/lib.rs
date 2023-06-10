@@ -40,16 +40,6 @@ async fn notebooks(
         .output()
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
-   // Create a response containing the HTML contents
-   //  let response = Html(String::from_utf8_lossy(&html_contents.stdout).into_owned());
-
-    // Add custom headers to the response
-    // let mut headers = HeaderMap::new()
-    //     .insert(
-    //     "content-type",
-    //     HeaderValue::from_static("text/html; charset=utf-8"),
-    // ).unwrap();
-
     let response = http::Response::builder()
         .status(StatusCode::OK)
     .header("content-type", "text/html; charset=utf-8");

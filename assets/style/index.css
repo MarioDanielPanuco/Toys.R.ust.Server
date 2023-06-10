@@ -22,7 +22,7 @@ body {
 }
 
 header {
-    background-color: #20cbf3;
+    background-color: #518558;
     display: flex;
     /*align-items: center;*/
     justify-content: space-between;
@@ -134,4 +134,73 @@ a.github {
 .contact-form {
     text-align: center;
     border: 10px solid;
+}
+
+
+.chatbox {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+    margin: auto; /* add this line to center the chatbox */
+  position: absolute; /* add this line to position the chatbox */
+  top: 0; /* add this line to position the chatbox */
+  bottom: 0; /* add this line to position the chatbox */
+  left: 0; /* add this line to position the chatbox */
+  right: 0; /* add this line to position the chatbox */
+}
+
+.chatbox__messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+.chatbox__message {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.chatbox__message--bot {
+  align-items: flex-start;
+}
+
+.chatbox__message--user {
+  align-items: flex-end;
+}
+
+.chatbox__message p {
+  padding: 5px 10px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chatbox__input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.chatbox__input input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chatbox__input button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
 }
