@@ -25,6 +25,6 @@ async function submitContactForm() {
     }
 }
 
-async function react_component () {
-    //TODO: react comp
+async function chatbot_response() {
+    return "test"
 }
