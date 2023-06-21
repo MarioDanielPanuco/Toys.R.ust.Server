@@ -28,10 +28,27 @@ use tower_http::{
 
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
+enum Protocol {
+    Http,
+    Https,
+}
+
+struct HTTPVersion {
+    protocol: Protocol,
+}
+
 #[tokio::main]
 async fn main() {
     let ip = IpAddr::V4(Ipv4Addr::new(0, 0, 0, 0));
-    let port = 80;
+
+    let h: HTTPVersion = HTTPVersion {
+        protocol: Protocol::Https,
+    };
+    let port = match h.protocol {
+        Protocol::Http => 80,
+        Protocol::Https => 443,
+    };
+
     let addr = SocketAddr::from((ip, port));
 
     tracing_subscriber::registry()

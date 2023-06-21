@@ -1,3 +1,14 @@
+@font-face {
+  font-family: 'Cascadia Mono';
+  src: url('../fonts/CascadiaMono.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Cascadia Mono', monospace;
+}
+
 .body {
     background-color: lightseagreen;
 }
