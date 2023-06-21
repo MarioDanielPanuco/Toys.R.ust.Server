@@ -24,7 +24,7 @@ async fn notebooks(
         .await
         .map_err(|_| StatusCode::BAD_GATEWAY)?;
 
-    println!("Notebooks:\n{}", notebook_contents);
+    println!("Notebooks:\n{}\n", notebook_contents);
     // Write the notebook contents to a temporary file
     let mut temp_file = NamedTempFile::new().map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
     temp_file.write_all(notebook_contents.as_bytes()).map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
@@ -40,6 +40,8 @@ async fn notebooks(
         .output()
         .map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
+    println!("Created html contents: \n {:?}", html_contents);
+
     let response = http::Response::builder()
         .status(StatusCode::OK)
     .header("content-type", "text/html; charset=utf-8");
@@ -49,6 +51,7 @@ async fn notebooks(
     // Set the body for the response
     let response = response.body(body).map_err(|_| StatusCode::INTERNAL_SERVER_ERROR)?;
 
+    println!("Created Response: \n {:?}", response);
     // Return the response along with the headers
     Ok(response)
 }

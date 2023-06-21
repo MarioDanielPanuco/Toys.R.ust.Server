@@ -6,7 +6,7 @@
     <meta name="viewport" content=width=device-width, initial-scale="1.0">
     <meta charset="utf-8">
     <title> Mario Daniel Panuco </title>
-    <link rel="stylesheet" type="text/css" href="style/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/index.css"/>
 
 </head>
 <body style="background-color: brown;">
@@ -19,10 +19,11 @@
             <li><a href="#about">About </a></li>
             <li><a href="#projects"> Projects </a></li>
             <li><a href="#notebooks"> Notebooks </a></li>
-            <li><a href="resources/MarioDanielPanuco%20-%20Resume.pdf">
+            <li><a href="resources/Mario_Daniel_Panuco_Resume.pdf">
                 Resume
             </a></li>
-            <li><a href="/assets/contact.html"> Contact </a></li>
+<!--            <li><a href="/assets/contact.html"> Contact </a></li>-->
+            <li><a href="#contact"> Contact </a></li>
         </ul>
     </nav>
 </header>
@@ -31,30 +32,22 @@
     <section id="about">
         <h2>About Me</h2>
         <p>Hi there! I'm Mario Daniel Panuco (I prefer Daniel), a Computer Science student interested in Scientific
-            Computing, Artificial Intelligence, and Systems Design. Research interests include:
-            Reinforcement learning techniques for autonomous underwater vehicles,
-            NLP Models, and Bioinformatic methods.
+            Computing, Artificial Intelligence, and Systems Design.
+            Research interests include:
+            Reinforcement learning techniques for autonomous vehicles;
+            NLP Models;
+            and Biological Systems Modeling.
         </p>
 
         <p>
             Outside of tech and science, I enjoy fiddling around with digital audio production and
             following/participating in esport titles like Halo and
-            Valorant.
+            CSGO.
         </p>
-        <p>Disclaimer: This site is still a work in progress, as it doesn't have a home domain.</p>
+        <p style="font-family: 'Arial Rounded MT Bold'">Disclaimer: This site is still a work in progress.</p>
+
     </section>
 
-    <section id="research interests">
-        <div>
-            <h2>Research Interests</h2>
-            <p>tes
-            </p>
-            <div>
-                <h3>Paper on Bioinformatics for Technical Writing For Engineers CSE 185s</h3>
-                <a href=""></a>
-            </div>
-        </div>
-    </section>
     <section id="projects">
         <h2>Projects</h2>
         <ul>
@@ -85,28 +78,28 @@
         <h2>Tutoring</h2>
         <ul>
             <li>
-                <h3> CSE 102 - Small Group Tutor </h3>
-                <p> I worked for a quarter tutoring for CSE 102, Introduction to Algorithm Analysis.
+                <h3> Small Group Tutor - CSE 102 - Intro. To Algorithm Analysis</h3>
+                <p>
                     My duties were facilitating discussions concerning problems related algorithmic challenges and
                     designing session preparation material.
                 </p>
 
                 <p>
-                    This opportunity gave me some insight and solutions to some of the challenges that arise when
-                    communicating about abstract ideas like systems design and algorithms.
+                    This opportunity gave me helped me develop my skills of communicating mathematical
+                    abstracts like system design and algorithms complexity.
                 </p>
-
             </li>
 
             <li>
-                <h3> CSE 20 - Supplemental Instruction Leader </h3>
+                <h3> Supplemental Instruction Leader - CSE 20 - Introduction To Python</h3>
                 <p> This position was slightly different than my first position as a tutor. Being a supplemental
                     instruction leader
                     meant I had to think about my session plan designs more and how my students will respond to said
                     material.</p>
                 <p></p>
                 <p>
-                    Session Plans for SI sessions and lecture notes for CSE 20 - Introduction to Python
+                    I wrote a collection of Jupyter notebooks that act as
+                    session plans for SI sessions and lecture notes for CSE 20.
                     <a href="https://github.com/mariodanielpanuco/CSE-20-SI" target="_blank">
                         GitHub.com/m..d..p../CSE-20-SI
                     </a></p>
@@ -128,6 +121,16 @@
             </li>
         </ul>
     </section>
+
+    <form id="contact-form" onsubmit="event.preventDefault(); submitContactForm();">
+        <label for="sender_email">Your Email:</label><br>
+        <input type="email" id="sender_email" name="sender_email"><br>
+        <label for="subject_title">Subject:</label><br>
+        <input type="text" id="subject_title" name="subject_title"><br>
+        <label for="message_body">Message:</label><br>
+        <textarea id="message_body" name="message_body"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
 </main>
 
 </body>

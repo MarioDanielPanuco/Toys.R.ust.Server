@@ -1,0 +1,19 @@
+# Test your endpoints
+
+GET http://0.0.0.0:80/
+Accept: application/json
+
+###
+GET http://0.0.0.0:80/index.html
+Accept: application/json
+
+###
+GET http://0.0.0.0:80/resources/MarioDanielPanuco%20-%20Resume.pdf
+Accept: application/pdf
+
+###
+
+GET http://0.0.0.0:80/eigen/
+Accept: application/json
+
+###
