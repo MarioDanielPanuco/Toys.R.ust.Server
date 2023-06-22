@@ -1,9 +1,12 @@
 # Test your endpoints
 
-GET http://mdpan.dev
+GET https://mdpan.dev
 Accept: application/json
 ###
+GET https://www.mdpan.dev
+Accept: application/json
 
+###
 GET 34.28.97.199:443
 Accept: application/json
 ###
