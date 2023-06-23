@@ -1,6 +1,9 @@
 @font-face {
   font-family: Cascadia Mono;
-  src: url('../fonts/CascadiaMono.woff2') format('woff2');
+  src: url('https://github.com/googlefonts/spacemono/raw/main/fonts/SpaceMono-Regular.ttf') format('truetype');
+       url('../fonts/CascadiaMono.woff2') format('woff2'),
+       /*url('https://fonts.gstatic.com/s/spacemono/v6/i7dPIFZifjKcF5UAWdDRUEZ2RFq7AwU.woff2') format('woff2');*/
+;
   font-weight: normal;
   font-style: normal;
 }
