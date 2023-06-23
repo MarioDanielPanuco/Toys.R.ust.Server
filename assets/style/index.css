@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'Cascadia Mono';
+  font-family: Cascadia Mono;
   src: url('../fonts/CascadiaMono.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: 'Cascadia Mono', monospace;
+  font-family: Cascadia Mono, monospace;
 }
 
 .body {
@@ -15,7 +15,7 @@ body {
 
 h1 {
     text-align:left;
-    font-family: Cascadia Mono, serif;
+    font-family: Cascadia Mono, monospace;
     accent-color: blue ;
 }
 
@@ -25,7 +25,7 @@ p {
 
 body {
     accent-color: #e354f5;
-    font-family: Cascadia Mono, sans-serif;
+    font-family: Cascadia Mono, monospace;
     margin: 0;
     text-align: left;
     /*align-content: right;*/
