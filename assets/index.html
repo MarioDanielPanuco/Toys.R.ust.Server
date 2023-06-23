@@ -17,8 +17,9 @@
     <nav style="color:black">
         <ul>
             <li><a href="#about">About </a></li>
-            <li><a href="#projects"> Projects </a></li>
-            <li><a href="#notebooks"> Notebooks </a></li>
+            <li><a href="#projects">Projects</a></li>
+<!--            <li><a href="blog.html">Blog</a></li>-->
+<!--            <li><a href="#notebooks"> Notebooks </a></li>-->
             <li><a href="resources/Mario_Daniel_Panuco_Resume.pdf">
                 Resume
             </a></li>
@@ -49,7 +50,7 @@
         <p>I wanted to use my personal site as a way to start building out and experimenting with a monolith Rust server.
         Which means for the time being keeping the front-end simple, mostly static. The classy way 🧐. </p>
 
-        <p>There are currently issues with GCP load-balancing for the domain, for ease of access you can connect
+        <p>For ease of access, if there are issues with GCP load-balancing for the domain, you can connect
         directly to the <a href="http://34.28.97.199:443">external server IP</a></p>
     </section>
 
@@ -59,18 +60,18 @@
             <li>
                 <h3>🦠PlankAI (Rust)</h3>
                 <p>Implemented a neural network and set of genetic algorithms in Rust as the engine for
-                    'Plankton' agents that collect food on a board. Front-end for the project was build using
-                    wasm and the wasm_bindgen Rust library.</p>
-                <a href="https://github.com/MarioDanielPanuco/PlankAI" target="_blank">
+                    'Plankton' agents that collect food on a board. Front-end webpage for the project was built using part
+                    JavaScript and WASM, specifically the wasm_bindgen Rust library .</p>
+                <a href="https://github.com/Mario/PlankAI" target="_blank">
                     PlankAI GitHub Repo</a>
             </li>
             <li>
                 <h3>⏲️Rust Timer</h3>
-                <p>A countdown clock written in Rust and accurate to the nanosecond.</p>
+                <p>A countdown clock written in Rust.</p>
 
                 <p>This project taught me a lot about building CLI tools using the Rust ecosystem. The majority of the
-                    project is build the crate clap to parse the CLI arguments. I used the duration crate for
-                    keeping track of time.
+                    project is built using clap crate to parse the CLI arguments. The Duration crate also came in
+                    handy for the project.
                 </p>
                 <p><a href="https://github.com/mariodanielpanuco/rusty_timer" target="_blank">
                     Rusty Timer GitHub Repo</a></p>
@@ -84,14 +85,19 @@
         <ul>
             <li>
                 <h3> Small Group Tutor - CSE 102 - Intro. To Algorithm Analysis</h3>
-                <p>
-                    My duties were facilitating discussions concerning problems related algorithmic challenges and
+            <ul>
+
+                <li>
+                    Facilitated discussions concerning algorithmic problems. and
                     designing session preparation material.
-                </p>
+                </li>
+                <li> Designing session preparation materials to create a structured scafold for tutoring sessions.</li>
+
+            </ul>
 
                 <p>
                     This opportunity gave me helped me develop my skills of communicating mathematical
-                    abstracts like system design and algorithms complexity.
+                    abstracts and how they relate to algorithm design and algorithm complexity.
                 </p>
             </li>
 
@@ -104,7 +110,7 @@
                 <p></p>
                 <p>
                     I wrote a collection of Jupyter notebooks that act as
-                    session plans for SI sessions and lecture notes for CSE 20.
+                    session plans, lecture notes, and exam preparation for CSE 20.
                     <a href="https://github.com/mariodanielpanuco/CSE-20-SI" target="_blank">
                         GitHub.com/m..d..p../CSE-20-SI
                     </a></p>
