@@ -19,6 +19,7 @@ use axum::{
 };
 
 use serde::{Deserialize, Serialize};
+use tokio::net::unix::uid_t;
 // use serde_json::json;
 
 use tower_http::{
@@ -68,7 +69,7 @@ async fn main() {
                 .handle_error(|error: Error| async move {
                     (
                         StatusCode::INTERNAL_SERVER_ERROR,
-                        format!("Unhandled internal error: {}", error),
+                        tracing::error!("Unhandled internal error: {}", error),
                     )
                 }),
         )
