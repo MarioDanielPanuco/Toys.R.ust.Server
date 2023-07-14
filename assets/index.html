@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta name="author" content="Mario Daniel Panuco">
-    <meta name="viewport" content=width=device-width, initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <title> Mario Daniel Panuco </title>
     <link rel="stylesheet" type="text/css" href="/style/index.css"/>
 
+    <!--    <link rel="icon" type="image/png" href="icons/favicon.png">-->
+
+    <meta name="description"
+          content="Personal website of Mario Daniel Panuco, a Computer Science/Applied Math. student interested in Scientific Computing, Artificial Intelligence, and Systems Design.">
+
+    <!-- Add Open Graph meta tags for better social media sharing -->
+    <meta property="og:title" content="Mario Daniel Panuco">
+    <meta property="og:description"
+          content="Personal website of Mario Daniel Panuco, a Computer Science/Applied Math. student interested in Scientific Computing, Artificial Intelligence, and Systems Design.">
+    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:url" content="https://mdpan.dev">
 </head>
 <body style="background-color: #036163;">
 <header>
     <h1>MDP</h1>
     <div id="social">
+<!--        <a href="https://github.com/MarioDanielPanuco" target="_blank">
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="Github" width="30"
+                 height="30">
+        </a>-->
+
+<!--
+        <a href="https://www.linkedin.com/in/mario-daniel-panuco/" target="_blank">
+            <img src="path/to/linkedin_favicon.png" alt="LinkedIn" width="30" height="30">
+        </a>
+-->
     </div>
-    <nav style="color:black">
+
+    <nav>
         <ul>
-<!--            <li><a href="#about">About </a></li>-->
-<!--            <li><a href="#projects">Projects</a></li>-->
-            <!--            <li><a href="blog.html">Blog</a></li>-->
-            <!--            <li><a href="#notebooks"> Notebooks </a></li>-->
-            <li><a href="resources/Mario_Daniel_Panuco_Resume.pdf">
-                Resume
-            </a></li>
-            <!--            <li><a href="/assets/contact.html"> Contact </a></li>-->
+            <li><a href="#about">About </a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="resources/Mario_Daniel_Panuco_Resume.pdf">Resume</a></li>
             <li><a href="#contact"> Contact </a></li>
         </ul>
     </nav>
@@ -32,30 +48,34 @@
 <main>
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi there! I'm Mario Daniel Panuco (preference: Daniel), a Computer Science/Applied Math. student interested
-            in the fields of Scientific
-            Computing, Artificial Intelligence, and Systems Design.
-            Specific research interest topics include:
-            Autonomous Vehicles;
-            ;
-            and Biological Systems Modeling.
-        </p>
+        <p>Hello there! I'm Mario Daniel Panuco, though I go by Daniel. Having recently graduated with a Bachelor's
+            degree in Computer Science, I am now set to embark on a new journey this fall as a Masters student in
+            Applied Mathematics. My undergraduate years sparked a passion in me for Scientific Computing, Artificial
+            Intelligence, and Systems Design, a passion I plan to further cultivate throughout my Masters program.</p>
 
-        <p>
-            Outside of tech and science, I enjoy fiddling around with digital audio production and
-            following esport FPS titles.
-        </p>
+        <p>With Autonomous Vehicles, I am particularly drawn to the multidisciplinary integration of robotics,
+            artificial intelligence, and computer vision. An area that captivates me is the application of neural
+            radiance fields to construct detailed 3D environments from 2D images, a promising technology for the
+            precision improvement of computer vision systems in autonomous vehicles. Moreover, I have a strong interest
+            in reinforcement learning and simulation creation. I find the concept of teaching machines to learn and
+            adapt through trial and error fascinating and see its significant potential in scenarios such as autonomous
+            driving, where safety and adaptability are crucial.</p>
 
-        <h style="font-family: 'Arial Rounded MT Bold'">Disclaimer: This site is still a work in progress.</h>
-        <p>I wanted to use my personal site as a way to start building out and experimenting with a monolith Rust
-            server.
-            Which means for the time being keeping the front-end simple, mostly static. The classy way 🧐. </p>
+        <p>On the Biological Systems Modeling and Bioinformatics side, I find niche ecological
+            modeling and drug discovery research to carry transformative potential for the future of healthcare and
+            ecological sustainability.
+            The opportunity to utilize computational models and tools for discovering novel therapeutics is thrilling.
+            Furthermore, I am motivated to develop scientific tools that can facilitate and streamline the work of
+            biologists, thus making research more efficient and accessible.</p>
 
-<!--
-        <p>For ease of access, if there are issues with GCP load-balancing for the domain, you can connect
-            directly to the <a href="http://34.28.97.199:443">external server IP</a></p>
--->
+        <p>Outside of academia, I have interests in to digital audio production and tracking eSports FPS titles.</p>
+
+        <p>This personal website serves as a platform for me to explore and construct a monolith Rust server, allowing
+            me to focus on back-end complexities while maintaining a simple and mostly static front-end.</p>
+
+        <!--    <h style="font-family: 'Arial Rounded MT Bold'">Disclaimer: This site is a work in progress.</h>-->
     </section>
+
 
     <section id="projects">
         <h2>Projects</h2>
@@ -80,43 +100,58 @@
                 <p><a href="https://github.com/mariodanielpanuco/rusty_timer" target="_blank">
                     Rusty Timer GitHub Repo</a></p>
             </li>
-            <li>
+<!--            <li>
                 <h3>🧮Machine Learning</h3>
-            </li>
+            </li>-->
         </ul>
         <p> For more of my personal projects, I suggest checking out my GitHub profile. </p>
+<a href="https://github.com/MarioDanielPanuco" target="_blank">
+    <img src="https://github.githubassets.com/pinned-octocat.svg" alt="Github" width="30" height="30">
+</a>
+
     </section>
 
     <section id="tutoring">
         <h2>🧑‍🏫Tutoring</h2>
         <ul>
             <li>
-                <h3> Small Group Tutor - CSE 102 - Intro. To Algorithm Analysis</h3>
+                <h3> Small Group Tutor | CSE 102 - Introduction to Algorithm Analysis</h3>
                 <ul>
-                    <li>Facilitated discussions concerning algorithmic problems.</li>
-                    <li>Designed session preparation materials to create a structured scaffold for tutoring sessions.
+                    <li>Facilitated a peer-centered learning environment, assisting students in understanding
+                        algorithmic problem-solving strategies and in communicating mathematical abstractions.
+                    </li>
+                    <li>Provided insight into applying algorithmic thinking and optimization techniques for time and
+                        space complexity, equipping students with the knowledge to tackle a variety of algorithmic
+                        challenges.
                     </li>
                 </ul>
-
-                <p>
-                    This opportunity gave me helped me develop my skills of communicating mathematical
-                    abstracts and how they relate to algorithm design and algorithm complexity.
-                </p>
             </li>
 
             <li>
-                <h3> Supplemental Instruction Leader - CSE 20 - Introduction To Python 🐍</h3>
-                <p> This position was slightly different than my first position as a tutor. Being a supplemental
-                    instruction leader
-                    meant I had to think about my session plan designs more and how my students will respond to said
-                    material.</p>
-                <p></p>
-                <p>
-                    I wrote a collection of Jupyter notebooks that act as
-                    session plans, lecture notes, and exam preparation for CSE 20.
-                    <a href="https://github.com/mariodanielpanuco/CSE-20-SI" target="_blank">
-                        GitHub.com/m..d..p../CSE-20-SI
-                    </a></p>
+                <h3> Supplemental Instruction Leader | CSE 20 - Introduction To Python 🐍</h3>
+                <ul>
+                    <li>Provided students with supplemental instruction in Python, diagnosing and guiding debugging
+                        strategies, and helping students recognize design patterns such as linear/binary recursion,
+                        sorting, and OOP.
+                    </li>
+                    <li>Authored a series of Jupyter notebooks, acting as lecture notes, session plans, and exam
+                        preparation for CSE 20. Available at <a href="https://github.com/mariodanielpanuco/CSE-20-SI"
+                                                                target="_blank">GitHub.com/m..d..p../CSE-20-SI</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <h3> Grader/Reader | CSE 140 - Artificial Intelligence</h3>
+                <ul>
+                    <li>Evaluated and provided feedback on student examinations, focusing on understanding and
+                        application of core AI principles: Constraint Satisfaction Problems, Adversarial Search, Markov
+                        Decision Processes, Reinforcement Learning, Knowledge Representation, Bayesian Networks, and
+                        Machine Learning.
+                    </li>
+                    <li>Collaborated with faculty to resolve any grading discrepancies, upholding the values of fairness
+                        and accuracy.
+                    </li>
+                </ul>
             </li>
         </ul>
     </section>
@@ -125,7 +160,7 @@
         <h2>Contact</h2>
         <p>Preferred contact medium is currently my school email or filling out the form below.</p>
         <ul>
-            <li>email: <a href="mailto:mpanuco@ucsc.edu">mpanuco@ucsc</a></li>
+            <li>email: <a href="mailto:mpanuco@ucsc.edu">mpanuco@ucsc.edu</a></li>
             <li>github: <a href="https://github.com/MarioDanielPanuco" target="_blank">Github.com/MarioDanielPanuco</a>
             </li>
 
@@ -136,20 +171,23 @@
         </ul>
     </section>
 
-    <!--    <form id="contact-form" onsubmit="event.preventDefault(); submitContactForm();">
-            <label for="sender_email">Your Email:</label><br>
-            <input type="email" id="sender_email" name="sender_email"><br>
-            <label for="subject_title">Subject:</label><br>
-            <input type="text" id="subject_title" name="subject_title"><br>
-            <label for="message_body">Message:</label><br>
-            <textarea id="message_body" name="message_body"></textarea><br>
-            <input type="submit" value="Submit">
-        </form>-->
+    <!--    <form id="contact-form" onsubmit="event.preventDefault(); submitContactForm();">-->
+    <!--        <label for="sender_email">Your Email:</label><br>-->
+    <!--        <input type="email" id="sender_email" name="sender_email" required><br>-->
+    <!--        <label for="subject_title">Subject:</label><br>-->
+    <!--        <input type="text" id="subject_title" name="subject_title" required><br>-->
+    <!--        <label for="message_body">Message:</label><br>-->
+    <!--        <textarea id="message_body" name="message_body" required></textarea><br>-->
+    <!--        <input type="submit" value="Submit">-->
+    <!--    </form>-->
 </main>
 
+<footer>
+    <h style="font-family: 'Arial Rounded MT Bold'">Disclaimer: This site is a work in progress.</h>
+    <p> © 2023 Mario Daniel Panuco. All rights reserved. </p>
+</footer>
+
+<!--<script type="text/javascript" src="/script/index.js"></script>-->
+
 </body>
-
-<script src="index.js">
-</script>
-
 </html>
